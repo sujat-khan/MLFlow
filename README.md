@@ -68,7 +68,7 @@ jupyter notebook
 ```bash
 cd c:\Users\sujat\projects\MLFlow_Learn
 venv\Scripts\activate
-mlflow ui
+mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
 
 Then open [http://localhost:5000](http://localhost:5000) in your browser.

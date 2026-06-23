@@ -95,15 +95,16 @@ Your Code (Python)
 MLFlow Client (Python API)
     │
     ├──▶ Backend Store (where metadata goes)
-    │       • File store (default): ./mlruns/ directory
-    │       • Database: SQLite, PostgreSQL, MySQL
+    │       • SQLite database (our default): sqlite:///mlflow.db
+    │       • PostgreSQL / MySQL (production)
+    │       • File store (legacy, deprecated): ./mlruns/
     │
     └──▶ Artifact Store (where files go)
             • Local filesystem (default): ./mlartifacts/
             • Remote: S3, GCS, Azure Blob Storage
 ```
 
-> **💡 Key Insight**: By default, MLFlow stores everything locally in your project directory. The `mlruns/` folder holds run metadata (params, metrics, tags) and the `mlartifacts/` folder holds artifact files. This is perfect for learning — no setup required!
+> **💡 Key Insight**: In this course, we use a **SQLite database** (`mlflow.db`) at the project root to store all experiment metadata (params, metrics, tags). Artifacts (models, plots) are stored in the `mlartifacts/` folder. SQLite is a single-file database — no server needed, but it supports the Model Registry and fast SQL queries!
 
 ---
 
@@ -127,7 +128,7 @@ MLFlow Client (Python API)
 
 1. **MLOps** brings software engineering discipline to ML — solving tracking, reproducibility, and deployment challenges
 2. **MLFlow** has 4 components: Tracking, Projects, Models, and Model Registry
-3. By default, everything is stored **locally** — no cloud setup needed to start
+3. We use a **SQLite database** (`mlflow.db`) for structured, local storage — no server needed to start
 4. MLFlow is **framework-agnostic** — works with scikit-learn, PyTorch, TensorFlow, and more
 5. The **Tracking** component (Module 2) is the foundation — you'll use it in every project
 

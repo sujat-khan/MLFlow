@@ -20,17 +20,14 @@ MLFlow Tracking is the most-used component. It lets you log and query experiment
 ```
 mlflow.start_run()
     │
-    ├── Parameters ──────▶ Backend Store
-    │   (input config)       • File store: mlruns/<exp_id>/<run_id>/params/
-    │                        • Database: runs table, params table
+    ├── Parameters ──────▶ Backend Store (SQLite)
+    │   (input config)       • Database: params table
     │
-    ├── Metrics ─────────▶ Backend Store
-    │   (output values)      • File store: mlruns/<exp_id>/<run_id>/metrics/
-    │                        • Database: metrics table
+    ├── Metrics ─────────▶ Backend Store (SQLite)
+    │   (output values)      • Database: metrics table
     │
-    ├── Tags ────────────▶ Backend Store
-    │   (metadata)           • File store: mlruns/<exp_id>/<run_id>/tags/
-    │                        • Database: tags table
+    ├── Tags ────────────▶ Backend Store (SQLite)
+    │   (metadata)           • Database: tags table
     │
     └── Artifacts ───────▶ Artifact Store
         (files)              • Local: mlartifacts/<exp_id>/<run_id>/artifacts/

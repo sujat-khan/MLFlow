@@ -49,9 +49,9 @@ Stage 4: Evaluation         → Run (tagged: stage=evaluate)
 
 | Backend | URI Format | Best For |
 |---------|------------|----------|
-| File Store | `./mlruns` | Development |
-| SQLite | `sqlite:///mlflow.db` | Single user |
-| PostgreSQL | `postgresql://user:pass@host:5432/db` | Production |
+| File Store | `./mlruns` | Legacy / Deprecated |
+| SQLite | `sqlite:///mlflow.db` | Development, Single user (Default) |
+| PostgreSQL | `postgresql://user:pass@host:5432/db` | Production, Teams |
 
 ---
 
