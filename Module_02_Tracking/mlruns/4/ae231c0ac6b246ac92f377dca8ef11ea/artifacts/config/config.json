@@ -1,0 +1,6 @@
+{
+  "model": "RandomForest",
+  "n_estimators": 100,
+  "dataset": "wine",
+  "test_size": 0.2
+}
