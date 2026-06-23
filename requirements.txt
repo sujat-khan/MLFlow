@@ -1,0 +1,37 @@
+# MLFlow End-to-End Course - Dependencies
+# Install with: pip install -r requirements.txt
+
+# === Core MLFlow ===
+mlflow>=2.15.0
+
+# === Machine Learning ===
+scikit-learn>=1.5.0
+
+# === Data Processing ===
+pandas>=2.2.0
+numpy>=1.26.0
+
+# === Visualization ===
+matplotlib>=3.9.0
+seaborn>=0.13.0
+
+# === Hyperparameter Tuning ===
+optuna>=3.6.0
+
+# === Jupyter ===
+jupyter>=1.0.0
+ipykernel>=6.29.0
+notebook>=7.2.0
+
+# === API & Serving ===
+requests>=2.32.0
+
+# === Database Backends ===
+psycopg2-binary>=2.9.0     # PostgreSQL driver
+
+# === AWS Deployment ===
+boto3>=1.34.0               # AWS SDK
+# sagemaker>=2.220.0        # Uncomment when ready for Module 7 (large install)
+
+# === Docker ===
+docker>=7.1.0               # Docker SDK for Python

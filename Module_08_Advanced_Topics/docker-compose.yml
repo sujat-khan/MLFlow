@@ -1,0 +1,44 @@
+version: '3.8'
+
+# MLFlow Production Stack — Docker Compose
+# Run with: docker-compose up -d
+# Access MLFlow UI at: http://localhost:5000
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: mlflow-postgres
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow123
+      POSTGRES_DB: mlflow_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlflow -d mlflow_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mlflow:
+    image: python:3.10-slim
+    container_name: mlflow-server
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlartifacts:/mlflow/artifacts
+    command: >
+      bash -c "pip install mlflow psycopg2-binary &&
+      mlflow server
+      --backend-store-uri postgresql://mlflow:mlflow123@postgres:5432/mlflow_db
+      --default-artifact-root /mlflow/artifacts
+      --host 0.0.0.0
+      --port 5000"
+
+volumes:
+  pgdata:

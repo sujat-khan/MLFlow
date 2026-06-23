@@ -1,0 +1,9 @@
+# Python environment specification for MLFlow Projects
+python: "3.10"
+build_dependencies:
+  - pip
+dependencies:
+  - mlflow>=2.15.0
+  - scikit-learn>=1.5.0
+  - pandas>=2.2.0
+  - numpy>=1.26.0
